@@ -1,0 +1,6 @@
+@url = http://localhost:8080
+GET {{url}}
+
+###
+POST {{url}}
+Content-Type: text/plain
