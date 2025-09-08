@@ -1,0 +1,28 @@
+@url = https://g5x5xnsf-8080.brs.devtunnels.ms/filmes
+
+###
+GET {{url}}
+
+###
+POST {{url}}
+Content-Type: application/json
+
+{
+    "titulo": "assisino expresso",
+    "idGenero": 1
+}
+
+###
+PUT {{url}}/1
+Content-Type: application/json
+
+{
+    "titulo": "a morte que voa",
+    "idGenero": 1
+}
+
+###
+GET {{url}}/1
+
+###
+DELETE {{url}}/1
