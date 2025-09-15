@@ -1,0 +1,11 @@
+@url = https://g5x5xnsf-8080.brs.devtunnels.ms/elencos
+
+###
+POST {{url}}
+Content-Type: application/json
+
+{
+    "idFilme": 1,
+    "idArtista": 1,
+    "idFuncao": 1
+}

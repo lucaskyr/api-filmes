@@ -39,7 +39,7 @@ public class FuncaoService {
         if (resultado.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Função não encontrada");
         }
-        resultado.get().setNome(novosDados.nome());
+        resultado.get().setDescricao(novosDados.descricao());
         return new FuncaoDTO(funcaoRepo.save(resultado.get()));
     }
     

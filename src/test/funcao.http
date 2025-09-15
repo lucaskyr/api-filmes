@@ -1,0 +1,25 @@
+@url = https://g5x5xnsf-8080.brs.devtunnels.ms/funcoes
+###
+GET {{url}}
+
+###
+POST {{url}}
+Content-Type: application/json
+
+{
+    "descricao": "Artor/atriz"
+}
+
+###
+PUT {{url}}/1
+Content-Type: application/json
+
+{
+    "descricao": "diretor/ator"
+}
+
+###
+GET {{url}}/1
+
+###
+DELETE {{url}}/1

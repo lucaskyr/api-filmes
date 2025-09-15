@@ -1,0 +1,26 @@
+@url = https://g5x5xnsf-8080.brs.devtunnels.ms/artistas
+
+###
+GET {{url}}
+
+###
+POST {{url}}
+Content-Type: application/json
+
+{
+    "nome": "daniel silveira"
+}
+
+###
+PUT {{url}}/1
+Content-Type: application/json
+
+{
+    "nome": "geovanna silva"
+}
+
+###
+GET {{url}}/1
+
+###
+DELETE {{url}}/1
