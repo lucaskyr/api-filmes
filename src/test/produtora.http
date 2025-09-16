@@ -1,0 +1,25 @@
+@url = https://g5x5xnsf-8080.brs.devtunnels.ms/produtoras
+
+###
+GET {{url}}
+
+###
+post {{url}}
+Content-Type: application/json
+
+{
+  "nome": "Terror"
+}
+
+###
+GET {{url}}
+
+###
+PuT {{url}}/1
+Content-Type: application/json
+
+{
+  "nome": "Aventura"
+}
+
+DELETE {{url}}/

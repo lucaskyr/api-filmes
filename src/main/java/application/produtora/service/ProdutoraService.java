@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import application.generos.record.GeneroInsertDTO;
 import application.produtora.Produtora;
 import application.produtora.record.ProdutoraDTO;
 import application.produtora.record.ProdutoraInsertDTO;
@@ -34,7 +33,7 @@ public class ProdutoraService {
         return new ProdutoraDTO(produtora.get());
     }
     
-    public ProdutoraDTO update(long id, GeneroInsertDTO novosdados){
+    public ProdutoraDTO update(long id, ProdutoraInsertDTO novosdados){
         Optional<Produtora> produtora = produtoraRepo.findById(id);
         if(produtora.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Produtora não encontrada");

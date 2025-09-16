@@ -1,6 +1,7 @@
 package application.filmes.service;
 
 import java.util.Optional;
+import java.util.stream.Collector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,7 @@ public class FilmeService {
 
     public FilmeDTO insert(FilmeInsertDTO novoFilme){
         Genero genero = new Genero(generoService.getOne(novoFilme.idGenero()));
+        Set<Produtora> produtoras = novoFilme.idProdutoras().stream().map(p-> new Produtora(p)).collect(Collectors.toSet());
         
         Filmes filme = new Filmes();
         filme.setTitulo(novoFilme.titulo());
