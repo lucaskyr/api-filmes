@@ -1,7 +1,9 @@
 package application.filmes.service;
 
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,7 @@ import application.filmes.record.FilmeInsertDTO;
 import application.filmes.repository.FilmeRepository;
 import application.generos.Genero;
 import application.generos.service.GeneroService;
+import application.produtora.Produtora;
 
 @Service
 public class FilmeService {
@@ -34,12 +37,16 @@ public class FilmeService {
         Filmes filme = new Filmes();
         filme.setTitulo(novoFilme.titulo());
         filme.setGenero(genero);
+        filme.setProdutoras(produtoras);
 
         return new FilmeDTO(filmeRepo.save(filme));
     }
 
     public FilmeDTO update(long id, FilmeInsertDTO novosdados){
         Optional<Filmes> resultado = filmeRepo.findById(id);
+        Set<Produtora> produtoras = novosdados.idProdutoras().stream().map(p-> new Produtora(p)).collect(Collectors.toSet());
+        
+
         if(resultado.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Filme nao encontrado");
         }
@@ -47,6 +54,8 @@ public class FilmeService {
 
         resultado.get().setTitulo(novosdados.titulo());
         resultado.get().setGenero(genero);
+        resultado.get().setProdutoras(produtoras);
+
         return new FilmeDTO(filmeRepo.save(resultado.get()));
     }
 

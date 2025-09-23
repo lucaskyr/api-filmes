@@ -9,7 +9,8 @@ Content-Type: application/json
 
 {
     "titulo": "assisino expresso",
-    "idGenero": 1
+    "idGenero": 1,
+    "idProdutoras": [4]
 }
 
 ###
@@ -25,4 +26,4 @@ Content-Type: application/json
 GET {{url}}/1
 
 ###
-DELETE {{url}}/1
+DELETE {{url}}/2
